@@ -16,7 +16,8 @@
         android:src="@drawable/temp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="memo" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -27,17 +28,18 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="52dp"
-        android:layout_marginEnd="52dp" />
+        android:layout_marginEnd="52dp"
+        android:onClick="computer" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView3"
         android:src="@drawable/temp"
-        android:layout_below="@+id/imageView"
+        android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
-        android:layout_marginTop="32dp" />
+        android:onClick="map" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -46,17 +48,19 @@
         android:src="@drawable/temp"
         android:layout_alignTop="@+id/imageView3"
         android:layout_alignRight="@+id/imageView2"
-        android:layout_alignEnd="@+id/imageView2" />
+        android:layout_alignEnd="@+id/imageView2"
+        android:onClick="calender" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView5"
-        android:layout_marginTop="31dp"
+        android:layout_marginTop="58dp"
         android:src="@drawable/temp"
         android:layout_below="@+id/imageView3"
         android:layout_alignLeft="@+id/imageView3"
-        android:layout_alignStart="@+id/imageView3" />
+        android:layout_alignStart="@+id/imageView3"
+        android:onClick="led" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -65,24 +69,7 @@
         android:src="@drawable/temp"
         android:layout_alignTop="@+id/imageView5"
         android:layout_alignRight="@+id/imageView4"
-        android:layout_alignEnd="@+id/imageView4" />
+        android:layout_alignEnd="@+id/imageView4"
+        android:onClick="call" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView7"
-        android:layout_marginTop="36dp"
-        android:src="@drawable/temp"
-        android:layout_below="@+id/imageView5"
-        android:layout_alignRight="@+id/imageView5"
-        android:layout_alignEnd="@+id/imageView5" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView8"
-        android:src="@drawable/temp"
-        android:layout_alignTop="@+id/imageView7"
-        android:layout_alignRight="@+id/imageView6"
-        android:layout_alignEnd="@+id/imageView6" />
 </RelativeLayout>

@@ -27,6 +27,8 @@
         </activity>
         <activity android:name=".LedActivity" >
         </activity>
+        <activity android:name=".AddnumberActivity" >
+        </activity>
     </application>
 
 </manifest>
