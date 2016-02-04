@@ -15,6 +15,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MemoActivity" >
+        </activity>
+        <activity android:name=".ShorteningActivity" >
+        </activity>
+        <activity android:name=".ComputeActivity" >
+        </activity>
+        <activity android:name=".CalenderActivity" >
+        </activity>
+        <activity android:name=".MapActivity" >
+        </activity>
+        <activity android:name=".LedActivity" >
+        </activity>
     </application>
 
 </manifest>
