@@ -15,7 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MemoActivity" >
+        <activity android:name=".AddMemoActivity" >
         </activity>
         <activity android:name=".ShorteningActivity" >
         </activity>
@@ -28,6 +28,8 @@
         <activity android:name=".LedActivity" >
         </activity>
         <activity android:name=".AddnumberActivity" >
+        </activity>
+        <activity android:name=".MemoActivity" >
         </activity>
     </application>
 

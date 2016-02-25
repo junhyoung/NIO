@@ -12,27 +12,27 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-    void memo(View v){
+    public void  memo(View v){
         Intent intent = new Intent(getApplicationContext(),MemoActivity.class);
         startActivity(intent);
     }
-    void computer(View v){
+    public void computer(View v){
         Intent intent = new Intent(getApplicationContext(),ComputeActivity.class);
         startActivity(intent);
     }
-    void calender(View v){
+    public  void calender(View v){
         Intent intent = new Intent(getApplicationContext(),CalenderActivity.class);
         startActivity(intent);
     }
-    void led(View v){
+    public void led(View v){
         Intent intent = new Intent(getApplicationContext(),LedActivity.class);
         startActivity(intent);
     }
-    void call(View v){
+    public void call(View v){
         Intent intent = new Intent(getApplicationContext(),ShorteningActivity.class);
         startActivity(intent);
     }
-    void map(View v){
+    public void map(View v){
         Intent intent = new Intent(getApplicationContext(),MapActivity.class);
         startActivity(intent);
     }
