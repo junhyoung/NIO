@@ -12,6 +12,8 @@ public class ListData {
 
     public String date;
 
+    static boolean temp;
+
     /**
      * 날짜순으로 정렬
      */

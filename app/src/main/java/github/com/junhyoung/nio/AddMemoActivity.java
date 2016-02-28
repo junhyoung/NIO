@@ -43,7 +43,7 @@ public class AddMemoActivity extends AppCompatActivity {
     public void save(View v){
         content = contents.getText().toString();
         findDay();
-        String sql = "insert into " + tableName + " values(NULL, '" +date+"'"+", " +"'"+content+ "');"; //db 저장
+        String sql= "insert into " + tableName + " values(NULL, '" +date+"'"+", " +"'"+content+ "');"; //db 저장
         db.execSQL(sql);
         finish();
     }

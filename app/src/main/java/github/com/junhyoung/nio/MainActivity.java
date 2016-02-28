@@ -20,10 +20,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),ComputeActivity.class);
         startActivity(intent);
     }
-    public  void calender(View v){
-        Intent intent = new Intent(getApplicationContext(),CalenderActivity.class);
-        startActivity(intent);
-    }
     public void led(View v){
         Intent intent = new Intent(getApplicationContext(),LedActivity.class);
         startActivity(intent);

@@ -45,7 +45,7 @@ public class MapActivity extends Activity {
         findlocate();
         add = (TextView) findViewById(R.id.address);
         log=(TextView)findViewById(R.id.log);
-        findAddress(lat,lng);
+        findAddress(lat, lng);
     }
     public void copy(View v){
         add.setText(findAddress(lat, lng));
@@ -55,37 +55,41 @@ public class MapActivity extends Activity {
 
     public void find(View v) {
         address = add.getText().toString();
-        Geocoder geocoder = new Geocoder(this);
-        Address addr;
-        LatLng location = null;
-        try {
-            List<Address> listAddress = geocoder.getFromLocationName(address, 1);
-            if (listAddress.size() > 0) { // 주소값이 존재 하면
-                addr = listAddress.get(0); // Address형태로
-                double lat = (double) (addr.getLatitude() * 1E6);
-                double lng = (double) (addr.getLongitude() * 1E6);
-                location = new LatLng(lat, lng);
+        List<Address> addr=null;
+        Geocoder mCoder=new Geocoder(this);
+        try{
+            addr=mCoder.getFromLocationName(address,5);
 
-                Toast.makeText(getApplicationContext(), "LAT :" + lat + "LNG : " + lng, Toast.LENGTH_SHORT).show();
-                Log.d("", "주소로부터 취득한 위도 : " + lat + ", 경도 : " + lng);
+        }catch (IOException e){}
+
+        try{
+            if(addr.size()==0){
+                throw new Exception();
+            }else {
+                for (int i = 0; i < addr.size(); i++){
+                    Address lating = addr.get(i);
+                    lat=lating.getLatitude();
+                    lng=lating.getLongitude();
+                }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(),"결과가 없습니다",Toast.LENGTH_SHORT).show();
         }
 
-        draw(lat, lng);
+        draw(lat,lng);
+        findAddress(lat,lng);
     }
 
-    public String findAddress(double lat, double lng) { //위도경도로 주소값 반환
+    public String findAddress(double lat1, double lng1) { //위도경도로 주소값 반환
         String temp="";
         StringBuffer bf = new StringBuffer();
-        Geocoder geocoder = new Geocoder(this, Locale.KOREA);
+        Geocoder geocoder=new Geocoder(this, Locale.KOREA);
         List<Address> address;
         String currentLocationAddress;
         try {
             if (geocoder != null) {
                 // 세번째 인수는 최대결과값인데 하나만 리턴받도록 설정했다
-                address = geocoder.getFromLocation(lat, lng, 3);
+                address = geocoder.getFromLocation(lat1, lng1, 3);
                 // 설정한 데이터로 주소가 리턴된 데이터가 있으면
                 if (address != null && address.size() > 0) {
                     // 주소
@@ -95,8 +99,8 @@ public class MapActivity extends Activity {
                     bf.append(currentLocationAddress);
                     curr=bf.toString();
                     temp=curr.toString();
-                    bf.append("\n").append("lat:").append(lat).append(", ");
-                    bf.append("lng:").append(lng);
+                    bf.append("\n").append("lat:").append(lat1).append(", ");
+                    bf.append("lng:").append(lng1);
                 }
             }
 
@@ -152,8 +156,8 @@ public class MapActivity extends Activity {
 
 
     }
-    public void draw(double lat, double lng){
-        LatLng locate=new LatLng(lat,lng);
+    public void draw(double lat1, double lng1){
+        LatLng locate=new LatLng(lat1,lng1);
         map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)).getMap();
         Marker marker = map.addMarker(new MarkerOptions().position(locate).title("Here I am!"));
 

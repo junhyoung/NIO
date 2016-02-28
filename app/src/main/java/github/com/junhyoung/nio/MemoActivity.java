@@ -28,6 +28,9 @@ public class MemoActivity extends AppCompatActivity {
     String dbName="save.db";
     String tableName="memo";
     int dbMode= Context.MODE_PRIVATE;
+    boolean isReOpen=false;
+    int tempId=-1;
+    int saveSize=0;
 
     AlertDialog.Builder builder;
 
@@ -35,6 +38,16 @@ public class MemoActivity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         readAllDb();
+        if(isReOpen && saveSize!=mAdapter.mListData.size()){
+            String sql="delete from " + tableName + " where id = " + tempId + ";";
+            db.execSQL(sql);
+            tempId=-1;
+            isReOpen=false;
+            saveSize=0;
+            mAdapter.clear(); // 리스트뷰 초기화
+            readAllDb(); //삭제후 DB 출력
+            mAdapter.notifyDataSetChanged(); // 리스트뷰 출력
+        }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +76,9 @@ public class MemoActivity extends AppCompatActivity {
                 ListData mData = mAdapter.mListData.get(position);
                 Intent intent = new Intent(getApplicationContext(), AddMemoActivity.class);
                 String temp = mData.text;
+                tempId=mData.id;
+                isReOpen=true;
+                saveSize=mAdapter.mListData.size();
                 intent.putExtra("text", temp);
                 startActivity(intent);
             }

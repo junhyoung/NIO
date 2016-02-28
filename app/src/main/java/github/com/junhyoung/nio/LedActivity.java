@@ -8,8 +8,8 @@ import android.widget.ImageView;
 
 public class LedActivity extends AppCompatActivity {
     Camera mCamera = null;
-    ImageView On;
-    ImageView Off;
+    ImageView light;
+    boolean isOn=false;
 
     @Override
     protected void onPause() {
@@ -23,27 +23,33 @@ public class LedActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_led);
-        On=(ImageView)findViewById(R.id.on);
-        Off=(ImageView)findViewById(R.id.off);
+        light=(ImageView)findViewById(R.id.light);
 
 
     }
 
     public void on(View v) {
-        mCamera = Camera.open();
-        Camera.Parameters mCameraParameter;
-        mCameraParameter = mCamera.getParameters();
-        mCameraParameter.setFlashMode("torch");
-        mCamera.setParameters(mCameraParameter);
-        On.setImageResource(R.drawable.temp);
-        Off.setImageResource(R.drawable.temp);
+        if(isOn){
+            if (mCamera != null) {
+                mCamera.release();
+            }
+            light.setImageResource(R.drawable.off);
+            isOn=false;
+        }
+        else{
+            mCamera = Camera.open();
+            Camera.Parameters mCameraParameter;
+            mCameraParameter = mCamera.getParameters();
+            mCameraParameter.setFlashMode("torch");
+            mCamera.setParameters(mCameraParameter);
+            light.setImageResource(R.drawable.on);
+            isOn=true;
+        }
+
+
+
+
+
     }
 
-    public void off(View v) {
-        if (mCamera != null) {
-            mCamera.release();
-        }
-        On.setImageResource(R.drawable.temp);
-        Off.setImageResource(R.drawable.temp);
-    }
 }

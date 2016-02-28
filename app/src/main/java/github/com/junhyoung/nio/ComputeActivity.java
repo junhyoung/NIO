@@ -23,51 +23,76 @@ public class ComputeActivity extends AppCompatActivity {
 
     public void zero(View v){
         if (A.equals("0")) {}
-        else {
+        else if(A.length()<9){
             addResult(0);}
         set();
     }
     public void one(View v){
+        if(A.length()<9){
         addResult(1);
-        set();
+        set();}
     }
     public void two(View v){
-        addResult(2);
+
+        if(A.length()<9){
+            addResult(2);
+        }
         set();
     }
 
     public void three(View v){
-        addResult(3);
+
+        if(A.length()<9){
+            addResult(3);
+        }
         set();
     }
 
     public void four(View v){
-        addResult(4);
+
+        if(A.length()<9){
+            addResult(4);
+        }
         set();
     }
 
     public void five(View v){
-        addResult(5);
+
+        if(A.length()<9){
+            addResult(5);
+        }
         set();
     }
 
     public void six(View v){
-        addResult(6);
+
+        if(A.length()<9){
+            addResult(6);
+        }
         set();
     }
 
     public void seven(View v){
-        addResult(7);
+
+        if(A.length()<9){
+            addResult(7);
+        }
         set();
     }
 
     public void eight(View v){
-        addResult(8);
+
+        if(A.length()<9){
+            addResult(8);
+        }
         set();
     }
 
     public void nine(View v){
-        addResult(9);
+
+        if(A.length()<9){
+            addResult(9);
+        }
         set();
     }
 
@@ -203,7 +228,8 @@ public class ComputeActivity extends AppCompatActivity {
         String res=B;
 
         switch (o){
-            case "+": res=""+ (Double.parseDouble(B)+Double.parseDouble(A));break;
+            case "+":
+                res=""+ (Double.parseDouble(B)+Double.parseDouble(A));break;
             case "-": res=""+ (Double.parseDouble(B)-Double.parseDouble(A));break;
             case "*": res=""+ (Double.parseDouble(B)*Double.parseDouble(A));break;
             case "/": res=""+ (Double.parseDouble(B)/Double.parseDouble(A));break;
@@ -211,8 +237,8 @@ public class ComputeActivity extends AppCompatActivity {
         }
         if(res.endsWith(".0"))
             res=res.substring(0,res.length()-2);
-        if(res.length()>10)
-            return res.substring(0,10);
+        if(res.length()>144)
+            return res.substring(0,144);
         else
             return res;
     }
